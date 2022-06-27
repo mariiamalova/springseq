@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>user</title>
+</head>
+<body>
+Hello, <p th:text ="${username}"/>
+<p>Wellcome to the user page!</p>
+Your password: <p th:text ="${password}"/>
+Your roles: <p th:text ="${roles}"/>
+
+
+<br/>
+<a th:href="@{/logout}">Logout</a>
+
+</form>
+</body>
+</html>
