@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>users</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<table border = "1">
+    <tr>
+        <th>ID</th>
+        <th>user name</th>
+        <th>password</th>
+        <th>roles</th>
+    </tr>
+    <tr th:each="user : ${users}">
+        <td th:utext="${user.getId()}">id</td>
+        <td><a th:href="@{/admin/users/{id}(id=${user.getId()})}" th:utext="${user.getUsername()}"></a></td>
+        <td> <a th:href="@{/admin/users/{id}(id=${user.getId()})}" th:utext="${user.getPassword()}"/></td>
+        <td th:utext="${user.getRolesString()}">roles</td>
+    </tr>
+</table>
+
+<br/>
+<hr/>
+<a href="/admin/new">Create new user</a>
+<br/>
+<a th:href="@{/logout}">Logout</a>
+
+<!--<div class ="container fluid text-center">-->
+<!--    <div>-->
+<!--        <thead>-->
+<!--        <table class="table table-bordered">-->
+<!--            <tr class="table-borderless">-->
+<!--                <th>ID</th>-->
+<!--                <th>Username</th>-->
+<!--                <th>Password</th>-->
+<!--                <th>Edit</th>-->
+<!--                <th>Delete</th>-->
+<!--            </tr>-->
+<!--        <tbody>-->
+<!--        <th:block th:each="user : ${users}">-->
+<!--            <tr class="table-borderless">-->
+<!--                <td  th:utext="${user.getId()}">id</td>-->
+<!--                <td  th:utext="${user.getUsername()}">username</td>-->
+<!--                <td  th:utext="${user.getPassword()}">password</td>-->
+<!--                <td th:width="20"><button type="button" size="10" class="btn btn-info" >Edit</button></td>-->
+<!--                <td th:width="20"> <button type="button" size="10" class="btn btn-danger" >Delete</button></td>-->
+<!--            </tr>-->
+<!--        </th:block>-->
+<!--        </tbody>-->
+<!--        </table>-->
+<!--        </thead>-->
+<!--    </div>-->
+<!--</div>-->
+</body>
+</html>
+
+
+
